@@ -1,0 +1,11 @@
+val x = 100
+
+def sumSquareDif(largestNumb : Int) : Int = {
+	val r = List.range(1,largestNumb+1)
+	val xSum2 = r.sum * r.sum
+	val x2Sum = r.map((y) => y*y).sum
+	xSum2 - x2Sum
+}
+
+sumSquareDif(100)
+25164150
