@@ -1,0 +1,40 @@
+/* number of primes below n is approximately x/log(x) (base 2)*/
+/* play around with this to get an idea of upper bound*/ 
+def log2(x : Double) : Double = {
+	math.log(x) / math.log(2)
+}
+
+val m = 125000
+
+
+/*better approximate*/
+(n*(math.log(n) + math.log(math.log(n -1)))).ceil 
+
+val n = 10001
+
+/*Real slow, brute forces a list of primes*/
+
+def findPrime(whichPrime: Int): Int = {
+	val max : Double = (whichPrime*(math.log(whichPrime) + math.log(math.log(whichPrime - 1)))).ceil
+	/*starting on prime number 2*/
+	val possibles = List.range(17,max.toInt,2)
+	var output = List[Int](2,3,5,7,11,13)
+	var i = 0
+	while (i < possibles.length & output.length < whichPrime){
+		var temp = 0
+		var j = 3
+		while (j <= math.sqrt(possibles(i)) & temp == 0) {
+			if (possibles(i) % j == 0) {
+			temp += 1
+			}
+			j += 2
+		}
+		if (temp == 0) output = output :+ possibles(i)
+		i += 1
+	}
+	output.last
+}
+
+findPrime(n)
+
+104743
