@@ -1,0 +1,13 @@
+var i = 0
+var toSum = List[Int]()
+
+while (i < 1000){
+	if (i % 3 == 0 | i % 5 == 0){
+		toSum = toSum :+ i
+	}
+	i += 1
+}
+
+toSum.sum
+
+233168
