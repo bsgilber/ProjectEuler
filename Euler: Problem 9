@@ -1,0 +1,21 @@
+val x = 1000
+
+def pythTriple(sumVal : Int) : Map[Int,List[Int]] = {
+	var possibles = Map[Int,List[Int]]()
+	var i = 1
+	while (i < (sumVal*0.50)){
+		var j = 2
+		while (j < sumVal*0.50){
+			if((i*i + j*j) == (1000-i-j)*(1000-i-j)){
+				possibles += (i*j*(1000-i-j)) -> List(i,j,(1000-i-j))
+			}
+			j += 1
+		}
+		i += 1
+	}
+	possibles
+}
+
+pythTriple(x)
+
+375, 200, 425
