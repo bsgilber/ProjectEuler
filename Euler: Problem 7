@@ -22,12 +22,12 @@ def findPrime(whichPrime: Int): Int = {
 	var i = 0
 	while (i < possibles.length & output.length < whichPrime){
 		var temp = 0
-		var j = 3
-		while (j <= math.sqrt(possibles(i)) & temp == 0) {
-			if (possibles(i) % j == 0) {
+		var j = 0
+		while (j < output.length & temp == 0) {
+			if (possibles(i) % output(j) == 0) {
 			temp += 1
 			}
-			j += 2
+			j += 1
 		}
 		if (temp == 0) output = output :+ possibles(i)
 		i += 1
