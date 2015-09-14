@@ -1,0 +1,21 @@
+/*	Has to be a multiple of the largest value */
+/*	Possible values will scale with that value */
+
+val x = 20 
+
+def smallestMod(iter : Int): Int = {
+	val mods = List.range(1,iter+1)
+	var i = iter
+	var output = 0
+	while (output == 0){
+		if (mods.filter((h : Int) => i % h == 0).length == iter){
+			output += i
+			}
+		else i += iter
+		}
+	output
+}
+
+smallestMod(x)
+
+232792560
