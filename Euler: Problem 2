@@ -1,0 +1,17 @@
+val fibSeq : List[Int] = List(1,2)
+val max = 4000000
+
+def fib(fibSeq : List[Int], maxVal: Int) : List[Int] = {
+	var fibCurrent : List[Int] = fibSeq
+	var a = fibCurrent(fibCurrent.length - 2)
+	var b = fibCurrent(fibCurrent.length - 1)
+	fibCurrent = fibCurrent :+ (a + b)
+	if (a+b > maxVal) fibCurrent
+	else fib(fibCurrent,maxVal) 
+}
+
+val holding = fib(fibSeq, max)
+val evens = holding.filter(_ % 2 == 0)
+evens.sum
+
+4613732
