@@ -1,0 +1,26 @@
+val x = 600851475143L
+val y = 3
+
+def factor(toFactor : Long, lowestGuess : Int) : List[Long] = {
+	var primeList = List[Long]()
+	var i : Long = lowestGuess
+	while (i < toFactor / i){
+		if (toFactor % i == 0) {
+		primeList = primeList :+ i
+		}
+	i += 2
+	}
+	primeList
+}
+
+val out = factor(x,y)
+
+var maxPrime = List[Any]()
+
+for (i <- out){
+	if (factor(i,y) == List()) maxPrime = maxPrime :+ i
+}
+
+maxPrime.last
+
+6857
