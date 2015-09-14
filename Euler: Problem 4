@@ -1,0 +1,22 @@
+var startVal = 900
+
+def palProd(startVal : Int) : List[Int] = {
+	var holdProducts = List[Int]()
+	var a = startVal
+	while (a < 1000){
+		var b = startVal + 1
+		while (b < 999) {
+			var z = (a*b).toString
+			/*999*999 has a max of 6 digits*/
+			if (z(0) == z(z.length-1) & z(1) == z(z.length-2) & z(2) == z(z.length-3)){
+				holdProducts = holdProducts :+ (a*b)
+			}
+			b += 1
+		}
+		a += 1
+	}
+	holdProducts
+}
+
+val possibles = palProd(startVal)
+possibles.max
