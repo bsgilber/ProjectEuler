@@ -16,6 +16,5 @@ def pythTriple(sumVal : Int) : Map[Int,List[Int]] = {
 	possibles
 }
 
-pythTriple(x)
-
-375, 200, 425
+val (key,value) = pythTriple(x).head
+key
