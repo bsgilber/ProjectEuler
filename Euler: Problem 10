@@ -1,0 +1,28 @@
+val n = 2000000
+
+def seive(max: Int): List[Long] = {
+	var startList = List.range(2,(math.sqrt(max).toInt+1),1)
+	var prime = List[Long]()
+	while(startList.nonEmpty){
+		var i = startList.head
+		var notPrime = startList.view.filter(_ % i == 0)
+		prime = prime :+ i.toLong
+		startList = startList diff notPrime
+	}
+	prime
+}
+
+def sumPrime(max: Int) : Long = {
+	val primeList = seive(max)
+	var possibles : List[Long] = List.range(2,max,1)
+	var i = 0
+	while (i < primeList.length){
+		possibles = possibles.filterNot(_ % primeList(i) == 0)
+		i += 1
+	}
+	val out : List[Long] = possibles ::: primeList
+	out.sum
+}
+
+sumPrime(n)
+
