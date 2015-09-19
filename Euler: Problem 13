@@ -1,0 +1,11 @@
+val file = /*Omitted*/
+val digits = 10
+
+def sumLastDigits(fileName : String, firstDigits : Int): Long = {
+	val fileLines = io.Source.fromFile(file).getLines.toList
+	val fileTrim = fileLines.map((h) => h.slice(0,digits+digits/2))
+	val toSum = fileTrim.map(_.toLong)
+	toSum.sum
+}
+
+sumLastDigits(file,digits)
