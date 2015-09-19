@@ -1,0 +1,34 @@
+def triangularList(highGuess : Long) : List[Long] = {
+	var triangularNumb : List[Long] = List(1)
+	var j = 2
+	while (triangularNumb.last < highGuess){
+		triangularNumb = triangularNumb :+ triangularNumb.last+j
+		j += 1
+	}
+	triangularNumb
+}
+
+def countFactors(numb : Long) : Long = {
+	var i = 1
+	var counter = 0
+	while (i < numb){
+		if (numb % i == 0) counter += 1
+		i += 1
+	}
+	counter
+}
+
+def firstFactors(triangList : List[Long], reqFactors : Int) : Long = {
+	var k = 0
+	var out : Long = 0
+		while (k < triangList.length & out == 0) {
+		if (countFactors(triangList(k)) >= reqFactors) out += triangList(k)
+		k += 1
+	}
+	out
+}
+
+val possibles = triangularList(900000000L)
+var betterPossibles = possibles.slice(possilbes.indexWhere( _ > 9000000L), possibles.length)
+firstFactors(betterPossibles, 500)
+
