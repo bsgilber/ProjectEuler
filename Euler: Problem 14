@@ -1,0 +1,19 @@
+val x = 1000000L
+
+def collatz(start : Long) : (Long, Long) = {
+	var longestChain = (0L,0L)
+	val r : List[Long] = ((List.range(1,start)).filter(_ % 2 == 1).reverse)
+	var i = 0
+	while (i < start*.10){
+	var l = List[Long](r(i))
+		while (l.last != 1) {
+			if (l.last % 2 == 0) l = l :+ l.last/2
+			else l = l :+ l.last*3 + 1
+		}
+	if (l.length > longestChain._2) longestChain = (r(i), l.length)
+	i += 1
+	}
+	longestChain
+}
+
+collatz(x)
