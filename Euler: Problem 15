@@ -1,4 +1,9 @@
-def makeList(n : Int): List[Int] = {
+/*
+interested in number of 'nodes', not number of cells
+nodes = cell length + 1
+*/
+
+def makeSquare(n : Int): List[Int] = {
 	var l = List[Int]()
 	var i = 0
 	var j = n
@@ -29,3 +34,6 @@ def countPaths(sqList : List[Int], n : Int): Long = {
 	println(tempList)
 	tempList.last
 }
+
+val x = 21
+countPaths(makeSquare(x),x)
